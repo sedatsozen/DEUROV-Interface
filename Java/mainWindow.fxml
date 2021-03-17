@@ -5,22 +5,144 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextField?>
 <BorderPane stylesheets="@styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="sample.Controller">
-    <center>
-        <ImageView fx:id="currentFrame" fitHeight="480" fitWidth="640" preserveRatio="true"/>
-    </center>
+    <top>
+        <HBox alignment="CENTER" spacing="100" styleClass="logo-field">
+            <ImageView fitHeight="125" fitWidth="125">
+                <Image url="@../Images/DEU.png" />
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="125" fitWidth="125">
+                <Image url="@../Images/DEUROV_changed.png" />
+            </ImageView>
+            <ImageView fitHeight="125" fitWidth="125">
+                <Image url="@../Images/tekno_changed.png" />
+            </ImageView>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+
+    <right>
+        <VBox>
+            <ImageView fx:id="currentFrame" fitHeight="600" fitWidth="800" preserveRatio="true">
+                <image>
+                    <Image url="@../Images/DEU.png" />
+                </image></ImageView>
+            <HBox alignment="CENTER" spacing="30">
+                <Button text="Connect" fx:id="connectButton" onAction="#startCamera">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button text="Take Photo" fx:id="captureButton" onAction="#captureImage">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button text="Start Recording" fx:id="recordButton" onAction="#recordVideo">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button text="Change Camera" fx:id="cameraChangeButton" onAction="#changeCamera">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <ComboBox prefHeight="31.0" prefWidth="144.0" fx:id="modeComboBox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Manual" />
+                            <String fx:value="Autonomous Task 1" />
+                            <String fx:value="Autonomous Task 2" />
+                            <String fx:value="Autonomous Task 3" />
+                        </FXCollections>
+                    </items>
+                    <value>
+                        <String fx:value="Manual" />
+                    </value>
+                </ComboBox>
+                <VBox.margin>
+                    <Insets top="15.0" />
+                </VBox.margin>
+            </HBox>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </VBox>
+    </right>
 
     <left>
-        <VBox>
-            <Label text="Sensor 1:" fx:id="sensor1Label"/>
-            <Label  text="Sensor 2:" fx:id="sensor2Label"/>
-            <Label text="Sensor 3:" fx:id="sensor3Label"/>
+        <VBox spacing="25.0" styleClass="left-vbox">
+            <HBox>
+                <Label text="Connection Status: "/>
+                <Label text="Waiting" fx:id="statusLabel"/>
+            </HBox>
+            <HBox>
+                <Label text="Controller: "/>
+                <Label text="Waiting" fx:id="joystickLabel"/>
+            </HBox>
+            <HBox spacing="5">
+                <Label text="Sensor 1:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font></Label>
+                <TextField editable="false" prefWidth="120" promptText="NaN" styleClass="value-textfield" fx:id="sensor1Field">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding></TextField>
+            </HBox>
+
+            <HBox spacing="5">
+                <Label text="Sensor 2:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font></Label>
+                <TextField editable="false" prefWidth="120" promptText="NaN" styleClass="value-textfield" fx:id="sensor2Field">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding></TextField>
+            </HBox>
+
+            <HBox spacing="5">
+                <Label text="Sensor 3:">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font></Label>
+                <TextField editable="false" prefWidth="120" promptText="NaN" styleClass="value-textfield" fx:id="sensor3Field">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" />
+                    </padding></TextField>
+            </HBox>
+
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <padding>
+                <Insets left="10.0" top="20.0" />
+            </padding>
         </VBox>
     </left>
-
-    <bottom>
-        <HBox alignment="CENTER" spacing="10" >
-            <Button text="Connect" fx:id="button" mnemonicParsing="false" onAction="#startCamera"/>
-        </HBox>
-    </bottom>
 </BorderPane>

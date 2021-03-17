@@ -1,3 +1,48 @@
+* {
+    -fx-first: #25274D;
+    -fx-second: #464866;
+    -fx-third: #AAABB8;
+    -fx-fourth: #2E9CCA;
+    -fx-fifth: #29648A;
+}
+
+.root{
+    -fx-background-color: -fx-second;
+}
+
+.button{
+    -fx-text-fill: black;
+    -fx-border-color: -fx-first;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-background-color: -fx-third;
+}
+
+.button:hover{
+    -fx-border-color: -fx-first;
+    -fx-background-color: -fx-fourth;
+    -fx-text-fill: black;
+}
+
 .label{
-    -fx-text-fill: red;
+    -fx-text-fill: black;
+}
+
+.value-textfield{
+    -fx-background-color: -fx-second;
+    -fx-text-fill: whitesmoke;
+    -fx-border-color: transparent transparent -fx-third transparent;
+}
+
+.logo-field{
+    -fx-background-color: -fx-first;
+    -fx-border-color: transparent transparent -fx-third transparent;
+    -fx-border-width: 3px;
+}
+
+.left-vbox{
+    -fx-background-color: -fx-fifth;
+    -fx-text-fill: -fx-first;
+    -fx-border-color: transparent -fx-third transparent transparent;
+    -fx-border-width: 3px;
 }
